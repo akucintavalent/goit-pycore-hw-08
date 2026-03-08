@@ -137,7 +137,7 @@ def input_error(func: Callable) -> Callable:
             return func(*args, **kwargs)
         except ValueError as e:
             return str(e)
-        except KeyError | IndexError:
+        except (KeyError, IndexError):
             return 'Invalid command.'
     
     return wrapper
